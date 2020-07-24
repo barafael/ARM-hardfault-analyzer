@@ -91,15 +91,17 @@ int main(void)
   MX_LPUART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  /* Cause a hardfault */
-  uint32_t *invalidPtr = (uint32_t*)0xCCCCCCCC;
-  uint32_t notGonnaHappen = *invalidPtr;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_SET) {
+      /* Cause a hardfault */
+      uint32_t *invalidPtr = (uint32_t*)0xCCCCCCCC;
+      uint32_t notGonnaHappen = *invalidPtr;
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

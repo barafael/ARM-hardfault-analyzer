@@ -67,6 +67,8 @@ void HardFault_Handler_Stack(uint32_t stack[]) {
     registers.SavedRegs.lr       = stack[5];
     registers.SavedRegs.pc       = stack[6];
     registers.SavedRegs.psr.byte = stack[7];
+
+    while(1) {}
 }
 
 /* USER CODE END PFP */
